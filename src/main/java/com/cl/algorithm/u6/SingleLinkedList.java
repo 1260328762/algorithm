@@ -16,14 +16,18 @@ public class SingleLinkedList<T> {
 
     public void add(T data) {
         if (head == null) {
-            head = new Node<>(data);
-            size++;
+           addHead(data);
         } else {
             addTail(data);
         }
     }
 
-    public void addTail(T data) {
+    private void addHead(T data) {
+        head = new Node<>(data);
+        size++;
+    }
+
+    private void addTail(T data) {
         Node<T> currentNode = head;
         while (currentNode.next != null) {
             currentNode = currentNode.next;
