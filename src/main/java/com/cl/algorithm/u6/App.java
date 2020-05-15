@@ -11,8 +11,11 @@ public class App {
         list.add(2);
         list.add(3);
         list.add(4);
+        list.add(9);
 
-        list.reverse();
-        list.printAll();
+        list.addRing(5);
+
+
+        System.out.println(list.hasCycle());
     }
 }

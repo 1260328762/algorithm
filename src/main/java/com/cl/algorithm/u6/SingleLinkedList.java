@@ -16,15 +16,28 @@ public class SingleLinkedList<T> {
 
     public void add(T data) {
         if (head == null) {
-           addHead(data);
+            addHead(data);
         } else {
             addTail(data);
         }
     }
 
+    public void addRing(T data) {
+        Node<T> tail = findTail();
+        tail.next = new Node<>(data, head);
+    }
+
     private void addHead(T data) {
         head = new Node<>(data);
         size++;
+    }
+
+    private Node<T> findTail() {
+        Node<T> currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
     }
 
     private void addTail(T data) {
@@ -33,6 +46,7 @@ public class SingleLinkedList<T> {
             currentNode = currentNode.next;
         }
         currentNode.next = new Node<>(data);
+        size++;
     }
 
     public void printAll() {
@@ -43,6 +57,9 @@ public class SingleLinkedList<T> {
         }
     }
 
+    /**
+     * 链表反转
+     */
     public void reverse() {
         if (head != null) {
             Node<T> curNode = head;
@@ -55,6 +72,50 @@ public class SingleLinkedList<T> {
             }
             head = preNode;
         }
+    }
+
+    /**
+     * 递归反转链表空间复杂度O(n) 因为递归会占用栈空间
+     * TODO 递归反转链表：待研究
+     */
+    public void recursionReverse() {
+        head = doReverse(head);
+    }
+
+    private Node<T> doReverse(Node<T> head) {
+        if (head == null || head.next == null) return head;
+        Node<T> p = doReverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return p;
+    }
+
+
+    /**
+     * 检测链表是否有环
+     * @return
+     */
+    public boolean hasCycle() {
+        Node<T> curNode = head;
+        if (curNode == null || curNode.next == null) return false;
+
+        Node<T> slowPointer = curNode;
+        Node<T> fastPointer = curNode;
+
+        Node<T> slowGuide = curNode;
+        Node<T> fastGuide = curNode;
+        while (fastPointer != null && fastPointer.next != null) {
+            slowPointer = slowGuide.next;
+            fastPointer = fastGuide.next.next;
+
+            if (slowPointer == fastPointer) {
+                return true;
+            }
+
+            slowGuide = slowPointer;
+            fastGuide = fastPointer;
+        }
+        return false;
     }
 
 
