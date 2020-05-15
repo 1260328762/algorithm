@@ -75,7 +75,7 @@ public class SingleLinkedList<T> {
     }
 
     /**
-     * 递归反转链表空间复杂度O(n) 因为递归会占用栈空间
+     * 递归反转链表空间复杂度O(n) 因为递归会占用栈空间, leetcode:206
      * TODO 递归反转链表：待研究
      */
     public void recursionReverse() {
@@ -93,7 +93,22 @@ public class SingleLinkedList<T> {
 
     /**
      * 检测链表是否有环
-     * @return
+     * leetcode 官方解法,题号：141
+     * public boolean hasCycle(ListNode head) {
+     * if (head == null || head.next == null) {
+     * return false;
+     * }
+     * ListNode slow = head;
+     * ListNode fast = head.next;
+     * while (slow != fast) {
+     * if (fast == null || fast.next == null) {
+     * return false;
+     * }
+     * slow = slow.next;
+     * fast = fast.next.next;
+     * }
+     * return true;
+     * }
      */
     public boolean hasCycle() {
         Node<T> curNode = head;
@@ -118,6 +133,73 @@ public class SingleLinkedList<T> {
         return false;
     }
 
+    /**
+     * 合并两个有序链表 leetcode：21
+     * @param list1
+     * @param list2
+     * @return
+     */
+    public SingleLinkedList<Integer> merge(SingleLinkedList<Integer> list1, SingleLinkedList<Integer> list2) {
+        SingleLinkedList<Integer> list = new SingleLinkedList<>();
+
+        list.head = merge(list1.head, list2.head);
+        return list;
+    }
+
+    private Node<Integer> merge(Node<Integer> l1, Node<Integer> l2) {
+
+        Node<Integer> newHead = new Node<>();
+
+        Node<Integer> newNode = newHead;
+
+        while (l1 != null && l2 != null) {
+            if (l1.data >= l2.data) {
+                newNode.next = l2;
+                l2 = l2.next;
+            } else {
+                newNode.next = l1;
+                l1 = l1.next;
+            }
+            newNode = newNode.next;
+        }
+
+        newNode.next = l1 == null ? l2 : l1;
+
+        return newHead.next;
+    }
+
+    /**
+     * 删除倒数指定位数的节点
+     * @param index leetcode: 19
+     * @return
+     */
+    public T removeTailByIndex(int index) {
+        Node<T> dummyNode = new Node<>(null, head);
+
+        Node<T> fastPointer = dummyNode;
+        Node<T> slowPointer = dummyNode;
+
+        // 先将快指针移动 index + 1个节点
+        int count = -1;
+        while (count < index) {
+            fastPointer = fastPointer.next;
+            count++;
+        }
+
+        // 同时移动快慢指针，直到快指针到链表尾部，此时慢指针正好处于要删除节点的上一个节点
+        while (fastPointer != null) {
+            fastPointer = fastPointer.next;
+            slowPointer = slowPointer.next;
+        }
+
+        Node<T> result = slowPointer.next;
+
+        slowPointer.next = slowPointer.next.next;
+
+        this.head = dummyNode.next;
+
+        return result.data;
+    }
 
     private static class Node<T> {
         private T data;
