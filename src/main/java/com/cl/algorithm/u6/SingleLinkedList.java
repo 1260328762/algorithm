@@ -201,6 +201,21 @@ public class SingleLinkedList<T> {
         return result.data;
     }
 
+    /**
+     * 返回链表中间节点
+     * @return
+     */
+    public T midData(){
+        Node<T> fastPointer = head;
+        Node<T> slowPointer = head;
+
+        while (fastPointer != null && fastPointer.next != null) {
+            fastPointer = fastPointer.next.next;
+            slowPointer = slowPointer.next;
+        }
+        return slowPointer.data;
+    }
+
     private static class Node<T> {
         private T data;
         private Node<T> next;

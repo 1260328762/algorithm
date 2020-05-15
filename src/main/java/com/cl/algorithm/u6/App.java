@@ -11,10 +11,10 @@ public class App {
         list.add(2);
         list.add(3);
         list.add(4);
-        list.add(5);
+        // list.add(5);
 
+        System.out.println(list.midData());
 
-        list.removeTailByIndex(2);
         list.printAll();
 
     }
