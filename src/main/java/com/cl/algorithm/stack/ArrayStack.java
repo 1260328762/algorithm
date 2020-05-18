@@ -28,18 +28,25 @@ public class ArrayStack<T> {
 
 
     public T pop() {
+        if (size == 0)
+            return null;
+
         T peek = peek();
         size--;
         return peek;
     }
 
     @SuppressWarnings("unchecked")
-    public T peek(){
+    public T peek() {
         if (size == 0)
             return null;
 
         Object item = items[size - 1];
-        return (T)item;
+        return (T) item;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 
 }

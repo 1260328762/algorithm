@@ -12,13 +12,24 @@ public class App {
         //
         // System.out.println(result);
 
-        MinStack minStack = new MinStack();
-        minStack.push(0);
-        minStack.push(2);
+        // MinStack minStack = new MinStack();
+        // minStack.push(0);
+        // minStack.push(2);
+        //
+        // minStack.push(6);
+        // minStack.push(-1);
+        //
+        // System.out.println(minStack.getMin());
 
-        minStack.push(6);
-        minStack.push(-1);
+        Queue queue = new Queue();
+        queue.push(1);
+        queue.push(2);
+        queue.push(3);
 
-        System.out.println(minStack.getMin());
+        System.out.println(queue.peek());
+        System.out.println(queue.peek());
+
+        queue.push(4);
+        System.out.println(queue.peek());
     }
 }
