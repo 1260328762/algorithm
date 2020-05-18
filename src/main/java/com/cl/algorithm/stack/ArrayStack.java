@@ -1,7 +1,5 @@
 package com.cl.algorithm.stack;
 
-import java.util.NoSuchElementException;
-
 /**
  * @author chenliang
  * @date 2020-05-18

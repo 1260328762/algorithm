@@ -3,6 +3,7 @@ package com.cl.algorithm.stack;
 /**
  * @author chenliang
  * @date 2020-05-18
+ * 使用栈来实现一个微型计算器
  */
 public class Calculator {
 
@@ -15,6 +16,7 @@ public class Calculator {
      * 保存操作符的栈
      */
     private ArrayStack<Character> operatorStack = new ArrayStack<>(100);
+
 
 
     public int calculate(String express) {
@@ -85,7 +87,6 @@ public class Calculator {
     }
 
     public int getPriority(char c) {
-
         switch (c) {
             case '+':
             case '-':
