@@ -1,4 +1,4 @@
-package com.cl.algorithm.u6;
+package com.cl.algorithm.linkedlist;
 
 /**
  * @author chenliang
