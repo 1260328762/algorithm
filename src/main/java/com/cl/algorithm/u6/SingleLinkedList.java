@@ -202,7 +202,7 @@ public class SingleLinkedList<T> {
     }
 
     /**
-     * 返回链表中间节点
+     * 返回链表中间节点 leetcode：876
      * @return
      */
     public T midData(){
