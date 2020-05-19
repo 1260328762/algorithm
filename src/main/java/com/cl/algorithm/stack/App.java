@@ -1,5 +1,7 @@
 package com.cl.algorithm.stack;
 
+import java.util.Arrays;
+
 /**
  * @author chenliang
  * @date 2020-05-18
@@ -36,6 +38,8 @@ public class App {
 
         // System.out.println(apply.calculate2("(1+(4+5+2)-3)+(6+8)"));
 
-        System.out.println(apply.calPoints(new String[]{"5","-2","4","C","D","9","+","+"}));
+        // System.out.println(apply.calPoints(new String[]{"5","-2","4","C","D","9","+","+"}));
+        int[] ints = apply.nextGreaterElement2(new int[]{2,4}, new int[]{1,2,3,4});
+        System.out.println(Arrays.toString(ints));
     }
 }

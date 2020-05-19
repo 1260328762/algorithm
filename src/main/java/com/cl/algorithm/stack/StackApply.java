@@ -307,4 +307,57 @@ public class StackApply {
         return result;
     }
 
+    /**
+     * 找出下一个最大元素
+     * leetcode：496
+     * @param nums1
+     * @param nums2
+     * @return
+     */
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] result = new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            int target = nums1[i];
+            boolean find = false;
+            for (int j = indexOf(nums2, target); j < nums2.length; j++) {
+                int value = nums2[j];
+                if (value > target) {
+                    result[i] = value;
+                    find = true;
+                    break;
+                }
+            }
+            if (!find) {
+                result[i] = -1;
+            }
+        }
+        return result;
+    }
+
+    private int indexOf(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+
+    public int[] nextGreaterElement2(int[] findNums, int[] nums) {
+        Stack < Integer > stack = new Stack < > ();
+        HashMap < Integer, Integer > map = new HashMap < > ();
+        int[] res = new int[findNums.length];
+        for (int num : nums) {
+            while (!stack.empty() && num > stack.peek())
+                map.put(stack.pop(), num);
+            stack.push(num);
+        }
+        while (!stack.empty())
+            map.put(stack.pop(), -1);
+        for (int i = 0; i < findNums.length; i++) {
+            res[i] = map.get(findNums[i]);
+        }
+        return res;
+    }
+
 }
