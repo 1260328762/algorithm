@@ -34,6 +34,8 @@ public class App {
         //
         // System.out.println(apply.leet("a2#c", "#a123#c"));
 
-        System.out.println(apply.calculate2("(1+(4+5+2)-3)+(6+8)"));
+        // System.out.println(apply.calculate2("(1+(4+5+2)-3)+(6+8)"));
+
+        System.out.println(apply.calPoints(new String[]{"5","-2","4","C","D","9","+","+"}));
     }
 }

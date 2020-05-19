@@ -1,6 +1,7 @@
 package com.cl.algorithm.stack;
 
 import java.util.HashMap;
+import java.util.Stack;
 
 /**
  * @author chenliang
@@ -269,6 +270,41 @@ public class StackApply {
             }
         }
         return result + (sign * operand);
+    }
+
+    /**
+     * 棒球分数计算
+     * leetcode: 682
+     * 1.整数（一轮的得分）：直接表示您在本轮中获得的积分数。
+     * 2. "+"（一轮的得分）：表示本轮获得的得分是前两轮有效 回合得分的总和。
+     * 3. "D"（一轮的得分）：表示本轮获得的得分是前一轮有效 回合得分的两倍。
+     * 4. "C"（一个操作，这不是一个回合的分数）：表示您获得的最后一个有效 回合的分数是无效的，应该被移除。
+     * @param ops
+     * @return
+     */
+    public int calPoints(String[] ops) {
+        Stack<Integer> stack = new Stack<>();
+
+        for (String s : ops) {
+            if ("+".equals(s)) {
+                Integer pop1 = stack.pop();
+                Integer pop2 = stack.peek();
+                stack.push(pop1);
+                stack.push(pop1 + pop2);
+            } else if ("D".equals(s)) {
+                stack.push(stack.peek() * 2);
+            } else if ("C".equals(s)) {
+                stack.pop();
+            } else {
+                stack.push(Integer.valueOf(s));
+            }
+        }
+
+        Integer result = 0;
+        while (!stack.empty()) {
+            result += stack.pop();
+        }
+        return result;
     }
 
 }
