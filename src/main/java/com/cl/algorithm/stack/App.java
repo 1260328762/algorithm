@@ -31,7 +31,9 @@ public class App {
         //
         // queue.push(4);
         // System.out.println(queue.peek());
+        //
+        // System.out.println(apply.leet("a2#c", "#a123#c"));
 
-        System.out.println(apply.leet("a2#c", "#a123#c"));
+        System.out.println(apply.calculate2("(1+(4+5+2)-3)+(6+8)"));
     }
 }

@@ -129,4 +129,146 @@ public class StackApply {
         return true;
     }
 
+    /**
+     * 简单字符计算器 ，支持括号 + -
+     * leetcode：224
+     * @param s
+     * @return
+     */
+    public int calculate(String s) {
+        ArrayStack<Integer> operandStack = new ArrayStack<>(100);
+
+        ArrayStack<Character> operatorStack = new ArrayStack<>(100);
+
+        char[] chars = s.toCharArray();
+        boolean preIsNumber = false;
+        for (char c : chars) {
+            if (c != ' ') {
+                if (isNumber(c)) {
+                    if (!preIsNumber) {
+                        operandStack.push(Integer.valueOf(String.valueOf(c)));
+                    } else {
+                        Integer pop = operandStack.pop();
+                        operandStack.push(Integer.valueOf(String.valueOf(pop).concat(String.valueOf(c))));
+                    }
+                    preIsNumber = true;
+                } else if (isOperator(c)) {
+                    Character peek = operatorStack.peek();
+                    if (peek != null && isOperator(peek)) {
+                        int calculate = calculate(operandStack.pop(), operandStack.pop(), peek);
+                        operandStack.push(calculate);
+                        operatorStack.pop();
+                    }
+                    preIsNumber = false;
+                    operatorStack.push(c);
+                } else if (isLeftBracket(c)) {
+                    operatorStack.push(c);
+                } else if (isRightBracket(c)) {
+                    Character peek = operatorStack.peek();
+                    if (isOperator(peek)) {
+                        int calculate = calculate(operandStack.pop(), operandStack.pop(), operatorStack.pop());
+                        operandStack.push(calculate);
+                        operatorStack.pop();
+                    } else if (isLeftBracket(peek)) {
+                        operatorStack.pop();
+                    }
+                }
+            }
+        }
+        while (!operatorStack.isEmpty()) {
+            Character pop = operatorStack.peek();
+            if (isOperator(pop)) {
+                return calculate(operandStack.pop(), operandStack.pop(), operatorStack.pop());
+            }
+            operatorStack.pop();
+        }
+        return operandStack.pop();
+    }
+
+    public boolean isOperator(char c){
+        return c == '+' || c == '-';
+    }
+
+    public boolean isNumber(char c) {
+        return c >= '0' && c <= '9';
+    }
+
+
+    private int calculate(int op1, int op2, char operator) {
+        if ('+' == operator) {
+            return op2 + op1;
+        } else if ('-' == operator) {
+            return op2 - op1;
+        } else {
+            throw new IllegalArgumentException(String.valueOf(operator));
+        }
+    }
+
+    public int calculate2(String s){
+
+        ArrayStack<Integer> stack = new ArrayStack<>(100);
+        int operand = 0;
+        int result = 0; // For the on-going result
+        int sign = 1;  // 1 means positive, -1 means negative
+
+        for (int i = 0; i < s.length(); i++) {
+
+            char ch = s.charAt(i);
+            if (Character.isDigit(ch)) {
+
+                // Forming operand, since it could be more than one digit
+                operand = 10 * operand + (int) (ch - '0');
+
+            } else if (ch == '+') {
+
+                // Evaluate the expression to the left,
+                // with result, sign, operand
+                result += sign * operand;
+
+                // Save the recently encountered '+' sign
+                sign = 1;
+
+                // Reset operand
+                operand = 0;
+
+            } else if (ch == '-') {
+
+                result += sign * operand;
+                sign = -1;
+                operand = 0;
+
+            } else if (ch == '(') {
+
+                // Push the result and sign on to the stack, for later
+                // We push the result first, then sign
+                stack.push(result);
+                stack.push(sign);
+
+                // Reset operand and result, as if new evaluation begins for the new sub-expression
+                sign = 1;
+                result = 0;
+
+            } else if (ch == ')') {
+
+                // Evaluate the expression to the left
+                // with result, sign and operand
+                result += sign * operand;
+
+                // ')' marks end of expression within a set of parenthesis
+                // Its result is multiplied with sign on top of stack
+                // as stack.pop() is the sign before the parenthesis
+                result *= stack.pop();
+
+                // Then add to the next operand on the top.
+                // as stack.pop() is the result calculated before this parenthesis
+                // (operand on stack) + (sign on stack * (result from parenthesis))
+                result += stack.pop();
+
+                // Reset the operand
+                operand = 0;
+            }
+        }
+        return result + (sign * operand);
+    }
+
 }
