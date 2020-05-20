@@ -17,6 +17,7 @@ public class App {
             public void run() {
                 while (true) {
                     System.out.println("消费了：" + blockingQueue.take());
+                    Thread.sleep(1000);
                 }
             }
         }.start();
@@ -29,7 +30,20 @@ public class App {
             public void run() {
                 while (true){
                     blockingQueue.put(2);
-                    System.out.println("生产了一个");
+                    System.out.println("生产了一个2");
+                    Thread.sleep(1000);
+                }
+            }
+        }.start();
+
+        new Thread(){
+            @SneakyThrows
+            @Override
+            public void run() {
+                while (true){
+                    blockingQueue.put(3);
+                    System.out.println("生产了一个3");
+                    Thread.sleep(1000);
                 }
             }
         }.start();
