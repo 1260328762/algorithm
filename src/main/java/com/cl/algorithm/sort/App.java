@@ -1,9 +1,6 @@
 package com.cl.algorithm.sort;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
+import com.cl.algorithm.linkedlist.Node;
 
 /**
  * @author chenliang
@@ -12,17 +9,13 @@ import java.util.Random;
 public class App {
     public static void main(String[] args) {
         Sort sort = new Sort();
-        int[] nums = new int[100000];
-        Random random = new Random();
-        for (int i = 0; i < 100000; i++) {
-            nums[i] = random.nextInt(100000);
-        }
+        Node<Integer> head = new Node<>(6);
 
+        head.next = new Node<>(5);
+        head.next.next = new Node<>(4);
 
+        sort.bubbleSort(head);
 
-        long l = System.currentTimeMillis();
-
-        System.out.println(System.currentTimeMillis() - l);
-
+        head.printAll();
     }
 }

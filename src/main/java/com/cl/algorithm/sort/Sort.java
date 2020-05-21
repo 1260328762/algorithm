@@ -1,5 +1,7 @@
 package com.cl.algorithm.sort;
 
+import com.cl.algorithm.linkedlist.Node;
+
 /**
  * @author chenliang
  * @date 2020-05-20
@@ -24,6 +26,26 @@ public class Sort {
                 }
             }
             if (!flag) break;
+        }
+    }
+
+    /**
+     * 链表版的冒泡排序
+     * TODO 链表版冒泡排序
+     * @param head
+     */
+    public void bubbleSort(Node<Integer> head) {
+        Node<Integer> curNode = head;
+
+        Node<Integer> newNode = new Node<>();
+        while (curNode.next != null) {
+            Integer curData = curNode.data;
+            Node<Integer> nextNode = curNode.next;
+            if (curData > nextNode.data) {
+                curNode.next = nextNode.next;
+                nextNode.next = curNode;
+            }
+            curNode = nextNode;
         }
     }
 
