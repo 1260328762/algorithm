@@ -12,6 +12,7 @@ public class Sort {
     /**
      * 冒泡排序
      * 时间复杂度：O(n²)
+     *
      * @param nums
      */
     public void bubbleSort(int[] nums) {
@@ -32,6 +33,7 @@ public class Sort {
     /**
      * 链表版的冒泡排序
      * TODO 链表版冒泡排序
+     *
      * @param head
      */
     public void bubbleSort(Node<Integer> head) {
@@ -52,9 +54,10 @@ public class Sort {
     /**
      * 插入排序
      * 时间复杂度：O(n²)
+     *
      * @param nums
      */
-    public void insertionSort(int[] nums){
+    public void insertionSort(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             int value = nums[i];
             int j = i - 1;
@@ -73,6 +76,7 @@ public class Sort {
     /**
      * 选择排序
      * 时间复杂度：O(n²)
+     *
      * @param nums
      */
     public void selectionSort(int[] nums) {
@@ -90,4 +94,82 @@ public class Sort {
             nums[minIndex] = temp;
         }
     }
+
+    /**
+     * 归并排序
+     *
+     * @param nums
+     */
+    public void mergeSort(int[] nums) {
+        doMergeSort(nums, 0, nums.length - 1);
+    }
+
+    private void doMergeSort(int[] a, int start, int end) {
+        if (start >= end) return;
+
+        int mid = (start + end) / 2;
+        doMergeSort(a, start, mid);
+        doMergeSort(a, mid + 1, end);
+        merge(a, start, mid, end);
+    }
+
+    private void merge(int[] a, int start, int mid, int end) {
+        int[] temp = new int[end - start + 1];
+        int i = start;
+        int j = mid + 1;
+        int index = 0;
+        while (i <= mid && j <= end) {
+            if (a[i] > a[j]) {
+                temp[index++] = a[j++];
+            } else {
+                temp[index++] = a[i++];
+            }
+        }
+
+        // 将数组剩余部分直接添加到临时数组后面
+        while (i <= mid) {
+            temp[index++] = a[i++];
+        }
+        while (j <= end) {
+            temp[index++] = a[j++];
+        }
+
+        index = 0;
+        while (start <= end) {
+            a[start++] = temp[index++];
+        }
+    }
+
+    /**
+     * 快速排序
+     *
+     * @param nums
+     */
+    public void quickSort(int[] nums) {
+        doQuickSort(nums, 0, nums.length - 1);
+    }
+
+    private void doQuickSort(int[] a, int start, int end) {
+        if (start >= end) return;
+
+        int mid = partition(a, start, end);
+        doQuickSort(a, start, mid - 1);
+        doQuickSort(a, mid + 1, end);
+    }
+
+    private int partition(int[] a, int start, int end) {
+        int i = start;
+        int pivot = a[end];
+        for (int j = start; j < end; j++) {
+            if (a[j] < pivot) {
+                int temp = a[j];
+                a[j] = a[i];
+                a[i++] = temp;
+            }
+        }
+        a[end] = a[i];
+        a[i] = pivot;
+        return i;
+    }
+
 }

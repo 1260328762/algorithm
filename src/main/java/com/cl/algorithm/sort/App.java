@@ -1,21 +1,38 @@
 package com.cl.algorithm.sort;
 
-import com.cl.algorithm.linkedlist.Node;
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author chenliang
  * @date 2020-05-20
  */
 public class App {
+
+
     public static void main(String[] args) {
+
+        int size = 100000;
+
+
         Sort sort = new Sort();
-        Node<Integer> head = new Node<>(6);
 
-        head.next = new Node<>(5);
-        head.next.next = new Node<>(4);
+        int[] a = new int[size];
 
-        sort.bubbleSort(head);
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            a[i] = random.nextInt(size) + 1;
+        }
 
-        head.printAll();
+        a[a.length - 1] = -2;
+
+        int[] b = new int[]{5, 7, 10, 2, 1, 1, 10, 3, 4, -2};
+
+        long l = System.currentTimeMillis();
+        sort.mergeSort(a);
+
+        System.out.println(System.currentTimeMillis() - l);
+
+        System.out.println(Arrays.toString(a));
     }
 }
