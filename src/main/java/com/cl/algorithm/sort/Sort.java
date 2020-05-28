@@ -57,7 +57,7 @@ public class Sort {
      *
      * @param nums
      */
-    public void insertionSort(int[] nums) {
+    public static void insertionSort(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             int value = nums[i];
             int j = i - 1;
@@ -100,11 +100,11 @@ public class Sort {
      *
      * @param nums
      */
-    public void mergeSort(int[] nums) {
+    public static void mergeSort(int[] nums) {
         doMergeSort(nums, 0, nums.length - 1);
     }
 
-    private void doMergeSort(int[] a, int start, int end) {
+    private static void doMergeSort(int[] a, int start, int end) {
         if (start >= end) return;
 
         int mid = (start + end) / 2;
@@ -113,7 +113,7 @@ public class Sort {
         merge(a, start, mid, end);
     }
 
-    private void merge(int[] a, int start, int mid, int end) {
+    private static void merge(int[] a, int start, int mid, int end) {
         int[] temp = new int[end - start + 1];
         int i = start;
         int j = mid + 1;
@@ -145,11 +145,11 @@ public class Sort {
      *
      * @param nums
      */
-    public void quickSort(int[] nums) {
+    public static void quickSort(int[] nums) {
         doQuickSort(nums, 0, nums.length - 1);
     }
 
-    private void doQuickSort(int[] a, int start, int end) {
+    private static void doQuickSort(int[] a, int start, int end) {
         if (start >= end) return;
 
         int mid = partition(a, start, end);
@@ -157,7 +157,7 @@ public class Sort {
         doQuickSort(a, mid + 1, end);
     }
 
-    private int partition(int[] a, int start, int end) {
+    private static int partition(int[] a, int start, int end) {
         int i = start;
         int pivot = a[end];
         for (int j = start; j < end; j++) {
