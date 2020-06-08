@@ -1,4 +1,4 @@
-package com.cl.algorithm;
+package com.cl.algorithm.util;
 
 import java.util.Collection;
 import java.util.Comparator;

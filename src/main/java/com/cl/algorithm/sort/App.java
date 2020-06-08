@@ -1,6 +1,6 @@
 package com.cl.algorithm.sort;
 
-import com.cl.algorithm.SortUtil;
+import com.cl.algorithm.util.SortUtil;
 
 import java.util.*;
 
