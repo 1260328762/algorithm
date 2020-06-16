@@ -24,7 +24,7 @@ public class HeapSort {
             int index = i;
             while (index != 0 && arr[index] > arr[(index + 1) / 2 - 1]) {
                 swap(arr, index, index = ((index + 1) / 2 - 1));
-            };
+            }
         }
     }
 
@@ -33,7 +33,7 @@ public class HeapSort {
         while (true) {
             int maxIndex = i;
             boolean find = false;
-            if (i * 2 + 1 <= endIndex && arr[i] < arr[i * 2 + 1]){
+            if (i * 2 + 1 <= endIndex && arr[i] < arr[i * 2 + 1]) {
                 maxIndex = i * 2 + 1;
                 find = true;
             } else if (i * 2 + 2 <= endIndex && arr[i] < arr[i * 2 + 2]) {
@@ -58,6 +58,44 @@ public class HeapSort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+    }
+
+
+    /**
+     * 求数组中元素的topK
+     *
+     * @param arr
+     * @param k
+     * @return
+     */
+    public static int[] topK(int[] arr, int k) {
+        int[] topKArr = new int[k + 1];
+        int size = 0;
+        for (int data : arr) {
+            if (data > topKArr[1]) {
+                if (size < k) {
+                    topKArr[++size] = data;
+                } else {
+                    topKArr[1] = data;
+                }
+                littleHeapify(topKArr);
+            }
+        }
+        return topKArr;
+    }
+
+    /**
+     * 堆化(小顶堆)，从下往上进行堆化
+     */
+    private static void littleHeapify(int[] arr) {
+        if (arr.length > 1) {
+            for (int i = 2; i < arr.length; i++) {
+                int index = i;
+                while (arr[index] < arr[index / 2]) {
+                    swap(arr, index, index = index / 2);
+                }
+            }
+        }
     }
 
 }

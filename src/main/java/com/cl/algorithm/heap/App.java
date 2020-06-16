@@ -8,10 +8,10 @@ import java.util.Arrays;
  */
 public class App {
     public static void main(String[] args) throws Exception {
-        int[] arr = new int[]{1, 2, 5, 3, 9, 4, 50, 40};
+        int[] arr = new int[]{0, 1, 2, 5, 3, 9, 4, 50, 40, 30, 8};
 
-        HeapSort.sort(arr);
+        int[] result = HeapSort.topK(arr, 4);
 
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(result));
     }
 }
