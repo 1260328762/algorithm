@@ -1,17 +1,25 @@
 package com.cl.algorithm.heap;
 
-import java.util.Arrays;
-
 /**
  * @author chenliang
  * @date 2020-06-11
  */
 public class App {
     public static void main(String[] args) throws Exception {
-        int[] arr = new int[]{0, 1, 2, 5, 3, 9, 4, 50, 40, 30, 8};
+        // HeapMid heap = new ArrayHeap(10, 0);
 
-        int[] result = HeapSort.topK(arr, 4);
+        HeapMid heap = new HeapMid();
 
-        System.out.println(Arrays.toString(result));
+        heap.add(1);
+        heap.add(3);
+        // heap.add(2);
+        // heap.add(9);
+        // heap.add(4);
+
+        System.out.println(heap.mid());
+
+        // while (heap.size() > 0) {
+        //     System.out.println(heap.popHead());
+        // }
     }
 }
