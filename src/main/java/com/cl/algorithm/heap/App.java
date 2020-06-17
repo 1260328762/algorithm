@@ -1,25 +1,25 @@
 package com.cl.algorithm.heap;
 
+import com.cl.algorithm.heap.timer.MySchedule;
+
 /**
  * @author chenliang
  * @date 2020-06-11
  */
 public class App {
     public static void main(String[] args) throws Exception {
-        // HeapMid heap = new ArrayHeap(10, 0);
 
-        HeapMid heap = new HeapMid();
+        MySchedule schedule = new MySchedule();
+        schedule.schedule(System.currentTimeMillis() + 5000, new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("我是测试任务1");
+            }
+        });
 
-        heap.add(1);
-        heap.add(3);
-        // heap.add(2);
-        // heap.add(9);
-        // heap.add(4);
 
-        System.out.println(heap.mid());
+        schedule.run();
 
-        // while (heap.size() > 0) {
-        //     System.out.println(heap.popHead());
-        // }
+        System.in.read();
     }
 }
