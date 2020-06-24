@@ -11,8 +11,8 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) throws Exception {
-        int size = 10000000;
-        int[] arr = new int[]{182112288, 135278288, 135278688};
+        // int size = 10000000;
+        // int[] arr = new int[]{182112288, 135278288, 135278688};
 
 
         // Random random = new Random();
@@ -27,16 +27,8 @@ public class App {
         //
         // System.out.println(Arrays.toString(arr));
 
-        char[] chars = new char[]{'8', '5', 'D', 'a', 'F', 'B', 'c', 'A', 'z'};
-        LetterSort.partitionSort(chars);
-        System.out.println(Arrays.toString(chars));
-        List<Character> list = new ArrayList<>(Arrays.asList('8', '5', 'D', 'a', 'F', 'B', 'c', 'A', 'z'));
-        SortUtil.sort(list, new Comparator<Character>() {
-            @Override
-            public int compare(Character o1, Character o2) {
-                return o1 - o2;
-            }
-        });
+        int[] arr = new int[]{1, 2, 3, 4, 6, 5};
+        Sort.mergeSort(arr);
 
     }
 

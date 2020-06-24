@@ -96,12 +96,18 @@ public class Sort {
     }
 
     /**
+     * 数组逆序度
+     */
+    private static int num = 0;
+
+    /**
      * 归并排序
      *
      * @param nums
      */
     public static void mergeSort(int[] nums) {
         doMergeSort(nums, 0, nums.length - 1);
+        System.out.println(num);
     }
 
     private static void doMergeSort(int[] a, int start, int end) {
@@ -121,6 +127,7 @@ public class Sort {
         while (i <= mid && j <= end) {
             if (a[i] > a[j]) {
                 temp[index++] = a[j++];
+                num += (mid - i + 1);
             } else {
                 temp[index++] = a[i++];
             }
