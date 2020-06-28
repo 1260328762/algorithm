@@ -63,11 +63,11 @@ public class Backtracking {
      * 一个背包承重Wkg，一共有n个物品，每个物品重量不等，
      * 再不超过W的情况下，最高可以装多重的重量
      */
-    public static void loadPack(int maxW, int[] items){
+    public static void loadPack(int maxW, int[] items) {
         recLoad(maxW, 0, items, 0);
     }
 
-    private static void recLoad(int maxW, int cw, int[] items, int i){
+    private static void recLoad(int maxW, int cw, int[] items, int i) {
         if (maxW <= cw || i == items.length) {
             int result = cw;
             if (maxW < cw) {
@@ -84,4 +84,20 @@ public class Backtracking {
         }
     }
 
+    static int res = 1;
+
+    /**
+     * 递归计算阶乘
+     *
+     * @param num
+     */
+    public static void factorial(int num) {
+        System.out.println(recFactorial(num));
+    }
+
+
+    private static int recFactorial(int num) {
+        if (num == 1) return 1;
+        return num * recFactorial(num - 1);
+    }
 }

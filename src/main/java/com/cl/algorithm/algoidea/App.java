@@ -10,6 +10,8 @@ public class App {
 
         int[] arr = new int[]{50, 30, 30, 20};
 
-        Backtracking.loadPack(100, arr);
+        // Backtracking.loadPack(100, arr);
+
+        Backtracking.factorial(6);
     }
 }
