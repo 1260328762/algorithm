@@ -6,18 +6,15 @@ package com.cl.algorithm.graph;
  */
 public class App {
     public static void main(String[] args) {
-        Graph graph = new Graph(8);
+        DirectionGraph graph = new DirectionGraph();
+
         graph.add(0, 1);
-        graph.add(0,3);
         graph.add(1, 2);
-        graph.add(1, 4);
-        graph.add(2, 5);
         graph.add(3, 4);
-        graph.add(4, 5);
-        graph.add(4, 6);
+        graph.add(2, 5);
+        graph.add(2, 4);
 
-
-       graph.levelSearch(0, 2);
+        graph.dfs();
 
     }
 }

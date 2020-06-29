@@ -8,10 +8,11 @@ public class App {
     public static void main(String[] args) {
         // Backtracking.queensEight();
 
-        int[] arr = new int[]{50, 30, 30, 20};
+        int[] arr = new int[]{2, 2, 4, 6};
 
-        // Backtracking.loadPack(100, arr);
+        System.out.println(Backtracking.knapsack(arr, arr.length, 10));
 
-        Backtracking.factorial(6);
+        // Backtracking.loadPack(10, arr);
+
     }
 }
