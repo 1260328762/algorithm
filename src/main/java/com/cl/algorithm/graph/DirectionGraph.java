@@ -24,6 +24,7 @@ public class DirectionGraph {
 
     /**
      * 添加
+     *
      * @param s 起始顶点
      * @param t 结束顶点
      */
@@ -35,9 +36,9 @@ public class DirectionGraph {
     /**
      * 拓扑排序，Kahn算法
      */
-    public void Kahn(){
+    public void Kahn() {
         int[] inDegree = new int[size];
-        
+
         // 先找出每个节点的入度
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < items[i].size(); j++) {
@@ -50,7 +51,7 @@ public class DirectionGraph {
         // 收集入度为0的顶点
         LinkedList<Integer> queue = new LinkedList<>();
         for (int i = 0; i < inDegree.length; i++) {
-            if (inDegree[i] == 0){
+            if (inDegree[i] == 0) {
                 queue.add(i);
             }
         }
@@ -73,7 +74,7 @@ public class DirectionGraph {
     /**
      * 拓扑排序 深度优先算法实现
      */
-    public void dfs(){
+    public void dfs() {
         // 构建逆邻接表
         LinkedList<Integer>[] inverseItems = new LinkedList[size];
         for (int i = 0; i < size; i++) {
@@ -91,7 +92,7 @@ public class DirectionGraph {
         boolean[] visited = new boolean[size];
         for (int i = 0; i < size; i++) {
             if (!visited[i]) {
-                visited[i] =  true;
+                visited[i] = true;
                 dfs(i, inverseItems, visited);
             }
         }
@@ -105,5 +106,48 @@ public class DirectionGraph {
             dfs(integer, inverseItems, visited);
         }
         System.out.print(vertex + " -> ");
+    }
+
+
+    /**
+     * 课程表 leetcode：210
+     *
+     * @param numCourses
+     * @param prerequisites
+     * @return
+     */
+    public static int[] canFinish(int numCourses, int[][] prerequisites) {
+        // 找出每个节点的出度
+        int[] outDegree = new int[numCourses];
+        for (int[] prerequisite : prerequisites) {
+            outDegree[prerequisite[0]]++;
+        }
+        System.out.println("出度：" + Arrays.toString(outDegree));
+
+
+        // 找出出度为0的节点
+        LinkedList<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < outDegree.length; i++) {
+            if (outDegree[i] == 0)
+                queue.add(i);
+        }
+
+        int[] result = new int[numCourses];
+        int index = 0;
+
+        while (!queue.isEmpty()) {
+            Integer vertex = queue.pop();
+            result[index++] = vertex;
+
+            for (int[] prerequisite : prerequisites) {
+                if (prerequisite[1] == vertex) {
+                    outDegree[prerequisite[0]]--;
+                    if (outDegree[prerequisite[0]] == 0)
+                        queue.add(prerequisite[0]);
+                }
+            }
+        }
+
+        return index == numCourses ? result : new int[]{};
     }
 }
