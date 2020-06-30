@@ -18,6 +18,7 @@ public class App {
         //
         // graph.dfs();
 
+
         int[][] arr = new int[][]{{1, 0}, {2, 1}};
         System.out.println(Arrays.toString(DirectionGraph.canFinish(3, arr)));
     }
