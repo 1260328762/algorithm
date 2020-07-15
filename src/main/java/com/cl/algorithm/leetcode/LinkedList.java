@@ -1,5 +1,8 @@
 package com.cl.algorithm.leetcode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * @author chenliang
  * @date 2020-07-13
@@ -44,5 +47,35 @@ public class LinkedList {
         return head.next;
     }
 
+
+    /**
+     * 合并K个有序链表：23
+     * @param lists
+     * @return
+     */
+    public static ListNode mergeKLists(ListNode[] lists) {
+        ListNode head = new ListNode();
+        ListNode tail = head;
+
+        PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length + 1,
+                Comparator.comparingInt(o -> o.val));
+
+        for (ListNode list : lists) {
+            if (list != null) {
+                queue.add(list);
+            }
+        }
+
+        while (!queue.isEmpty()) {
+            ListNode poll = queue.poll();
+            tail.next = poll;
+            tail = tail.next;
+
+            if (poll.next != null) {
+                queue.add(poll.next);
+            }
+        }
+        return head.next;
+    }
 
 }

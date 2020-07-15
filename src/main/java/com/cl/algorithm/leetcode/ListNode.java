@@ -21,6 +21,23 @@ public class ListNode {
         this.next = next;
     }
 
+    ListNode(int first, int[] nums) {
+        this.val = first;
+        addAll(nums);
+    }
+
+    public void addAll(int[] nums) {
+        ListNode tail = this;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+
+        for (int num : nums) {
+            tail.next = new ListNode(num);
+            tail = tail.next;
+        }
+    }
+
     public void printAll(){
         ListNode cur = this;
         while (cur != null) {

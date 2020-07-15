@@ -122,4 +122,34 @@ public class Array {
 
         return maxNumber;
     }
+
+
+    /**
+     * 缺失的第一个正数：41
+     * @param nums
+     * @return
+     */
+    public static int firstMissingPositive(int[] nums) {
+        HashMap<Integer, Object> map = new HashMap<>(nums.length);
+
+        int max = -1;
+        for (int num : nums) {
+            map.put(num, null);
+
+            if (num > max)
+                max = num;
+        }
+
+        if (max < 1) {
+            return 1;
+        }
+
+        for (int i = 1; i <= max ; i++) {
+            if (!map.containsKey(i)) {
+                return i;
+            }
+        }
+        return max + 1;
+    }
+
 }

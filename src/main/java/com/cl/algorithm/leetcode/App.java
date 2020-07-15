@@ -11,9 +11,24 @@ public class App {
         // int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
         // System.out.println(Array.threeSum(nums));
 
-        int[] nums2 = new int[]{2,2,1,1,1,2,2};
+        int[] nums2 = new int[]{7, 8, 9, 11, 12};
         // System.out.println(Arrays.toString(Array.twoSum(nums2, 6)));
 
-        System.out.println(Array.majorityElement(nums2));
+        // System.out.println(Array.majorityElement(nums2));
+
+        // System.out.println(Array.firstMissingPositive(nums2));
+
+        ListNode listNode = new ListNode(1, new int[]{4, 5});
+
+        ListNode[] listNodes = new ListNode[]{new ListNode(1, new int[]{4, 5}),
+                new ListNode(1, new int[]{3, 4}),
+                new ListNode(2, new int[]{6})
+        };
+
+        ListNode listNode1 = LinkedList.mergeKLists(listNodes);
+        if (listNode1 != null) {
+            listNode1.printAll();
+        }
+
     }
 }
