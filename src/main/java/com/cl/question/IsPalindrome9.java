@@ -28,10 +28,43 @@ package com.cl.question;
 public class IsPalindrome9 {
 
     public boolean isPalindrome(int x) {
-
         if (x < 0) {
             return false;
         }
 
+        if (x < 10) {
+            return true;
+        }
+
+        // 计算整数长度
+        int size = 0;
+        int value = x;
+        while (value != 0) {
+            value = value / 10;
+            size++;
+        }
+
+        // 将整数的每一位分别放入数组
+        int[] ints = new int[size];
+        int der = 1;
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = (x / der % 10);
+
+            der = der * 10;
+        }
+
+        // 双指针判断是否回文
+        for (int i = 0; i < ints.length / 2; i++) {
+            if (ints[i] != ints[ints.length - 1 - i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        boolean palindrome = new IsPalindrome9().isPalindrome(10022201);
+        System.out.println(palindrome);
     }
 }
