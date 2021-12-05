@@ -16,6 +16,8 @@ package com.cl.question;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ * TODO 解法2：降低空间复杂度，1.开辟一个n长度的数组，在原数组上移动，然后将新数组元素复制到最后 2.开辟一个1长度的数组，每次存储一个数字，并且原数组整体每次往前移动一次
  */
 public class ReverseLeftWords {
 

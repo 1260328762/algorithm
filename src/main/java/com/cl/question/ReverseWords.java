@@ -18,7 +18,7 @@ package com.cl.question;
  * 链接：https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
- * TODO 双指针法
+ * TODO 1.双指针法, 两次反转 空间复杂度O(1),扩展：求倒数第K个单词
  */
 public class ReverseWords {
 

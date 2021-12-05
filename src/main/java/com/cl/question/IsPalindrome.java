@@ -28,7 +28,7 @@ import com.cl.algorithm.util.SortUtil;
  * 链接：https://leetcode-cn.com/problems/valid-palindrome
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
- * TODO 优化：通过双指针不断移动在原字符串上判断
+ * TODO 解法2只循环一次，通过双指针不断移动在原字符串上判断
  */
 public class IsPalindrome {
 
