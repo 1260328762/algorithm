@@ -20,4 +20,12 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public void print() {
+        ListNode current = this;
+        while (current != null) {
+            System.out.println(current.val);
+            current = current.next;
+        }
+    }
 }
