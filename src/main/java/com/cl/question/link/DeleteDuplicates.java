@@ -34,4 +34,28 @@ public class DeleteDuplicates {
         return head;
     }
 
+    public ListNode delete2(ListNode head) {
+        if (head == null) return head;
+        ListNode newHead = new ListNode(-111, null);//虚拟头节点
+        ListNode tail = newHead;
+        ListNode p = head;
+        while (p != null) {
+            ListNode tmp = p.next;
+            if (p.val != tail.val) {
+                tail.next = p;
+                tail = p;
+                p.next = null;
+            }
+            p = tmp;
+        }
+
+        return newHead.next;
+    }
+
+    public static void main(String[] args) {
+        ListNode listNode = new DeleteDuplicates().delete2(new ListNode(1,
+                new ListNode(2, new ListNode(2, new ListNode(2, new ListNode(3))))));
+        listNode.print();
+    }
+
 }
