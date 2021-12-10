@@ -28,4 +28,15 @@ public class ListNode {
             current = current.next;
         }
     }
+
+    public static ListNode of(int[] arr) {
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
+        for (int i : arr) {
+            tail.next = new ListNode(i);
+            tail = tail.next;
+        }
+
+        return dummy.next;
+    }
 }
