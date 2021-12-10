@@ -9,7 +9,7 @@ package com.cl.question.link;
  * 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。输入：head = [1,2]
  * 输出：[2,1]
  * <p>
- * 来源：力扣（LeetCode）
+ * 来源：力扣（LeetCode）330624
  * 链接：https://leetcode-cn.com/problems/reverse-linked-list
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
