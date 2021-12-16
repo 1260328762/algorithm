@@ -6,19 +6,9 @@ import java.util.Stack;
 
 /**
  * @author chenliang
- * @since 2021/12/15 21:52
- * <p>
- * 面试题 16.26. 计算器
- * <p>
- * 给定一个包含正整数、加(+)、减(-)、乘(*)、除(/)的算数表达式(括号除外)，计算其结果。
- * <p>
- * 表达式仅包含非负整数，+， - ，*，/ 四种运算符和空格。 整数除法仅保留整数部分。
- * <p>
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/calculator-lcci
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * @since 2021/12/16 15:35
  */
-public class Calculater {
+public class Calculater2 {
 
     public int calculate(String s) {
         Stack<Integer> numberStack = new Stack<>();
@@ -42,11 +32,20 @@ public class Calculater {
             } else if (isOper(c)) {
                 if (!operStack.isEmpty()) {
                     // 判断当前操作符和栈顶操作符的优先级，如果当前操作符优先级小于等于栈顶优先级则先进行栈内元素运算
-                    while (!operStack.isEmpty() && compare(c, operStack.peek(), priority)) {
+                    while (!operStack.isEmpty() && operStack.peek() != '(' && compare(c, operStack.peek(), priority)) {
                         calculateAndPush(operStack, numberStack);
                     }
                 }
                 operStack.push(c);
+            } else if (c == '(') {
+                operStack.push(c);
+            } else if (c == ')') {
+                // 开始计算括号内数字
+                while (operStack.peek() != '(') {
+                    calculateAndPush(operStack, numberStack);
+                }
+                // 将左括号'('弹栈
+                operStack.pop();
             }
         }
 
@@ -90,8 +89,8 @@ public class Calculater {
     }
 
     public static void main(String[] args) {
-        int result = new Calculater().calculate("1+   2 +    3  *   2 / 2-1-2+6*20");
-        // int result = new Calculater().calculate("6*20");
-        System.out.println(result);
+        // 123
+        int calculate = new Calculater2().calculate("1+2 +3*(2/2-1)-2+6*20");
+        System.out.println(calculate);
     }
 }
