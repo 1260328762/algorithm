@@ -89,8 +89,7 @@ public class Calculater2 {
     }
 
     public static void main(String[] args) {
-        // 123
-        int calculate = new Calculater2().calculate("1+2 +3*(2/2-1)-2+6*20");
+        int calculate = new Calculater2().calculate("1+2 +3*(2/2-1*(12))-2+6*20");
         System.out.println(calculate);
     }
 }
