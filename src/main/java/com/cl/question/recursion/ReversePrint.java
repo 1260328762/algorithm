@@ -28,9 +28,12 @@ public class ReversePrint {
     public int[] reversePrint(ListNode head) {
         List<Integer> temp = new ArrayList<>();
         reverse(head, temp);
-        return temp.stream()
-                .mapToInt(Integer::valueOf)
-                .toArray();
+        int[] result = new int[temp.size()];
+        for (int i = 0; i < temp.size(); i++) {
+            result[i] = temp.get(i);
+        }
+
+        return result;
     }
 
     private void reverse(ListNode head, List<Integer> list) {
