@@ -29,6 +29,26 @@ public class WaysToStep {
         return f(n, cache);
     }
 
+    /**
+     * 动态规划解法
+     */
+    public int waysToStep2(int n) {
+        int[] cache = new int[n + 1];
+        cache[1] = 1;
+        cache[2] = 2;
+        cache[3] = 4;
+        int mod = 1000000007;
+        if (cache[n] != 0) return cache[n];
+
+        for (int i = 4; i <= n; i++) {
+            cache[i] = ((cache[i - 1] + cache[i - 2]) % mod + cache[i - 3]) % mod;
+        }
+        return cache[n];
+    }
+
+    /**
+     * 递归解法
+     */
     public int f(int n, int[] cache) {
         if (n == 1) return 1;
         if (n == 2) return 2;
