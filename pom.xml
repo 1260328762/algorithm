@@ -12,7 +12,7 @@
     <artifactId>algorithm</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>algorithm</name>
-    <description>Demo project for Spring Boot</description>
+    <description>数据结构和算法</description>
 
     <properties>
         <java.version>1.8</java.version>
