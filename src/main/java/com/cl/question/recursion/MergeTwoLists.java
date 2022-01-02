@@ -1,7 +1,6 @@
 package com.cl.question.recursion;
 
 import com.cl.question.link.ListNode;
-import sun.awt.SunHints;
 
 /**
  * @author chenliang

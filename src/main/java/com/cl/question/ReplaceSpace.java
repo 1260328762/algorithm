@@ -27,6 +27,7 @@ public class ReplaceSpace {
         for (int i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if (ch == ' ') {
+                // 查找到空格直接插入固定字符串进去
                 builder.append("%20");
             } else {
                 builder.append(ch);

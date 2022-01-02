@@ -34,6 +34,9 @@ public class DeleteDuplicates {
         return head;
     }
 
+    /**
+     * 创建一个新的节点，循环将老链表中节点添加到新节点中，并且判断新节点的tail是否等于老节点的当前节点
+     */
     public ListNode delete2(ListNode head) {
         if (head == null) return head;
         ListNode newHead = new ListNode(-111, null);//虚拟头节点

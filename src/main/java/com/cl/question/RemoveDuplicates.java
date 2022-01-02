@@ -23,11 +23,12 @@ package com.cl.question;
 public class RemoveDuplicates {
 
     public int removeDuplicates(int[] nums) {
-        // 快慢双指针
+        // 双指针
         int i = 0;
         int j = i + 1;
 
-        while (j < nums.length)
+        while (j < nums.length) {
+            // 如果前后两个元素相等，j往后移，一直找到和i位置不相等的元素，并将其插入到i后面一位
             if (nums[i] == nums[j]) {
                 j++;
             } else {
@@ -35,7 +36,12 @@ public class RemoveDuplicates {
                 nums[i] = nums[j];
                 j++;
             }
+        }
 
         return i + 1;
+    }
+
+    public static void main(String[] args) {
+        int i = new RemoveDuplicates().removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4});
     }
 }
