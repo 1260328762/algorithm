@@ -2,7 +2,8 @@ package com.cl.algorithm.queue;
 
 /**
  * @author chenliang
- * @date 2020-05-19
+ * @since  2020-05-19
+ * 循环队列
  */
 public class CircularQueue<T> {
 

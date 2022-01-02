@@ -16,9 +16,10 @@ public class HashTable<K, V> {
     /**
      * 存放数组的数组
      */
-    private Entry<K, V>[] table;
+    private final Entry<K, V>[] table;
 
     public HashTable() {
+        // unchecked
         table = (Entry<K, V>[]) new Entry[DEFAULT_INITIAL_CAPACITY];
     }
 

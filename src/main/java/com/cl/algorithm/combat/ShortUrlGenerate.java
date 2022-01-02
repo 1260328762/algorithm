@@ -4,7 +4,7 @@ import com.cl.algorithm.util.HashUtil;
 
 /**
  * @author chenliang
- * @date 2020-07-09
+ * @since  2020-07-09
  * 短网址生成器
  */
 public class ShortUrlGenerate {
@@ -19,6 +19,7 @@ public class ShortUrlGenerate {
      *
      * @param num
      * @return
+     * TODO 考虑完全随机算法
      */
     private static String to62HEX(int num) {
         num = Math.abs(num);

@@ -9,6 +9,7 @@ import java.util.function.ToLongFunction;
 /**
  * @author chenliang
  * @date 2020-06-17
+ * 利用堆实现定时任务，堆顶元素永远是最先开始执行的任务
  */
 public class MySchedule implements Runnable {
 

@@ -5,7 +5,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author chenliang
- * @date 2020-05-19
+ * @since  2020-05-19
+ * 阻塞队列
  */
 public class BlockingQueue<T> {
 

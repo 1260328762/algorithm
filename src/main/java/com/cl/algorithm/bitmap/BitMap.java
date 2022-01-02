@@ -7,9 +7,9 @@ package com.cl.algorithm.bitmap;
  */
 public class BitMap {
 
-    private char[] bytes;
+    private final char[] bytes;
 
-    private int nbits;
+    private final int nbits;
 
     public BitMap(int nbits) {
         this.nbits = nbits;
