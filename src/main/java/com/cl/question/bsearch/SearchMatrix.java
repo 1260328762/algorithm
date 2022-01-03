@@ -17,6 +17,9 @@ package com.cl.question.bsearch;
  */
 public class SearchMatrix {
 
+    /**
+     * 解体思路，二维转一维
+     */
     public boolean searchMatrix(int[][] matrix, int target) {
         int low = 0;
         int m = matrix[0].length;
@@ -26,7 +29,7 @@ public class SearchMatrix {
             // 计算第一层数组索引;
             int f = mid / m;
             // 计算第二层数组索引
-            int s = mid - f * m;
+            int s = mid % m;
             int value = matrix[f][s];
             if (value == target) {
                 return true;

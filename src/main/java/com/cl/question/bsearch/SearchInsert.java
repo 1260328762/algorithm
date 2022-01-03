@@ -16,14 +16,15 @@ package com.cl.question.bsearch;
  */
 public class SearchInsert {
 
+    /**
+     * 此题目可以转化为查找第一个大于等于给定值的元素
+     */
     public int searchInsert(int[] nums, int target) {
         int low = 0;
         int high = nums.length - 1;
         while (low <= high) {
             int mid = (low + high) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            } else if (nums[mid] > target) {
+            if (nums[mid] >= target) {
                 // 左探测
                 if (mid == 0 || nums[mid - 1] < target) {
                     return mid;
@@ -32,13 +33,9 @@ public class SearchInsert {
                 }
             } else {
                 low = mid + 1;
-                // 右探测
-                if (mid == nums.length - 1 || nums[mid + 1] > target) {
-                    return low;
-                }
             }
         }
 
-        return -1;
+        return nums.length;
     }
 }

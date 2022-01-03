@@ -27,7 +27,7 @@ public class FindPeakElement {
         while (low <= high) {
             int mid = (low + high) / 2;
             if (low == high)
-                return low;
+                return mid;
             if (mid == nums.length - 1) {
                 return mid;
             } else if (mid == 0) {

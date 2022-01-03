@@ -24,15 +24,15 @@ public class NextGreatestLetter {
         while (low <= high) {
             int mid = (low + high) / 2;
             if (letters[mid] > target) {
+                // 如果mid == 0，说明mid位置的元素就是比target大的最小元素
+                // 如果mid - 1位置的元素小于等于mid位置的元素，mid位置元素就是比target大的最小元素
                 if (mid == 0 || letters[mid - 1] <= target) {
                     return letters[mid];
                 } else {
                     high = mid - 1;
                 }
-            } else if (letters[mid] <= target) {
-                low = mid + 1;
             } else {
-                high = mid - 1;
+                low = mid + 1;
             }
         }
 
