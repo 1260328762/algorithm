@@ -44,4 +44,4 @@
 - [反转单词顺序](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/ReverseWords.java)
 
 ## Thanks
-![[JetBrains Logo (Main) logo](pic/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
+[![JetBrains Logo (Main) logo](pic/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
