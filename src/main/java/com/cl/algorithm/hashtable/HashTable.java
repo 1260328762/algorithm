@@ -74,7 +74,7 @@ public class HashTable<K, V> {
         }
     }
 
-    private Entry<K, V> findPreEntry(Entry<K, V> head, K key){
+    private Entry<K, V> findPreEntry(Entry<K, V> head, K key) {
         Entry<K, V> curr = new Entry<>(head);
         while (curr.next != null) {
             if (key.equals(curr.next.key)) {
