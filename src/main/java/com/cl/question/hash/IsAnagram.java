@@ -21,6 +21,7 @@ import java.util.HashMap;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/valid-anagram
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 其他解法：构建一个容量为26的数组，索引0存a出现的个数 索引25存放z出现的个数，
  */
 public class IsAnagram {
 
