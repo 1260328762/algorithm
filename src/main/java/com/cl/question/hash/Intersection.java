@@ -23,6 +23,7 @@ import java.util.List;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * TODO 1.扩展K个数组的交集 ---> 两两数组求交集，最终得到一个交集；2.使用hash表，key记录值，value记录出现的次数，value等数组长度的值即为交集
  */
 public class Intersection {
 
