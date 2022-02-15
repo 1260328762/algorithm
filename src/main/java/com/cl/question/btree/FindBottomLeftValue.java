@@ -48,4 +48,29 @@ public class FindBottomLeftValue {
         }
     }
 
+
+    int maxDepth = 0;
+    int result = 0;
+
+    /**
+     * 深度优先
+     */
+    public int findBottomLeftValue2(TreeNode root) {
+        result = root.val;
+        preOrder(root, 0);
+        return result;
+    }
+
+    public void preOrder(TreeNode root, int depth) {
+        if (root == null) return;
+
+        if (depth > maxDepth) {
+            result = root.val;
+            maxDepth = depth;
+        }
+
+        preOrder(root.left, depth + 1);
+        preOrder(root.right, depth + 1);
+    }
+
 }
