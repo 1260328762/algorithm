@@ -41,6 +41,7 @@ public class GetKthFromEnd {
 
     /**
      * 快慢双指针解法, TODO 暂未搞懂
+     * 先让快指针走k步，然后两个指针同步走，当快指针走到头时，慢指针就是链表倒数第k个节点。
      */
     public ListNode getKthFromEnd2(ListNode head, int k) {
         ListNode fast = head;
@@ -56,8 +57,5 @@ public class GetKthFromEnd {
         }
 
         return slow;
-    }
-    public static void main(String[] args) {
-
     }
 }

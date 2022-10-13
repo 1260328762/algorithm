@@ -38,10 +38,26 @@
 
 ### 一般编程题
 
-- [两数之和](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/TwoSum.java)
-- [ip地址无效化](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/DeIpAddr.java)
-- [反转字符串](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/ReverseString.java)
-- [反转单词顺序](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/ReverseWords.java)
+- [两数之和](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/TwoSum.java) `简单`
+- [ip地址无效化](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/DeIpAddr.java) `简单`
+- [反转字符串](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/ReverseString.java) `简单`
+- [反转单词顺序](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/ReverseWords.java) `简单`
+### 链表相关
+- [两数相加](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/AddTwoNumbers.java) `简单`
+- [删除排序链表中的重复元素](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/DeleteDuplicates.java) `简单`
+- [相交链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/GetIntersectionNode.java) `简单`
+- [链表中倒数第k个节点](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/GetKthFromEnd.java) `简单`
+- [环形链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/HasCycle.java) `简单`
+- [回文链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/IsPalindrome.java) `简单`
+- [合并两个排序的链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/MergeTwoLists.java) `简单`
+- [链表的中间结点](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/MiddleNode.java) `简单`
+- [反转链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/ReverseList.java) `简单`
+- [移除链表元素](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/RemoveElements.java) `简单`
+- [奇偶链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/OddEvenList.java) `中等`
+- [删除链表的倒数第 N 个结点](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/RemoveNthFromEnd.java) `中等`
+- [K 个一组翻转链表](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/link/RemoveNthFromEnd.java) `困难`
+
+
 
 ## Thanks
 [![JetBrains Logo (Main) logo](pic/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
