@@ -1,5 +1,8 @@
 package com.cl.question.stack;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * @author chenliang
  * @since 2021/12/18 21:38
@@ -40,4 +43,23 @@ public class DailyTemperatures {
 
         return result;
     }
+
+    /**
+     * 单调栈解法
+     */
+    public int[] dailyTemperatures2(int[] temperatures) {
+        int length = temperatures.length;
+        int[] ans = new int[length];
+        Deque<Integer> stack = new LinkedList<Integer>();
+        for (int i = 0; i < length; i++) {
+            int temperature = temperatures[i];
+            while (!stack.isEmpty() && temperature > temperatures[stack.peek()]) {
+                int prevIndex = stack.pop();
+                ans[prevIndex] = i - prevIndex;
+            }
+            stack.push(i);
+        }
+        return ans;
+    }
+
 }
