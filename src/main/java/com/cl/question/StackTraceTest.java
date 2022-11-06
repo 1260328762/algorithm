@@ -5,6 +5,7 @@ import java.util.Map;
 /**
  * @author chenliang
  * @since 2022/11/6 16:06
+ * Thread.getAllStackTraces() can output stacktrace info just like jstat command
  */
 public class StackTraceTest {
     public static void main(String[] args) {
