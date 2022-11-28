@@ -65,8 +65,14 @@
 - [每日温度(单调栈)](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/stack/DailyTemperatures.java) `中等`
 - [最小栈](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/stack/MinStack.java) `中等`
 - [栈排序](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/stack/SortedStack.java) `中等`
-- [有效的括号](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/stack/StringIsValid.java) `中等`
+- [有效的括号](src/main/java/com/cl/question/stack/StringIsValid.java) `中等`
 - [栈的压入、弹出序列](https://github.com/1260328762/algorithm/blob/master/src/main/java/com/cl/question/stack/ValidateStackSequences.java) `中等`
+
+## 真实面试题
+### 杭州FB外包
+- [两数相乘](src/main/java/com/cl/question/interview/fb/TwoStringMultiply.java)
+- [有效的括号(和【栈】的第九题一样)](src/main/java/com/cl/question/interview/fb/IsValid.java)
+- [找出数组中只出现一次的元素](src/main/java/com/cl/question/interview/fb/SingleNumber.java)
 
 ## Thanks
 [![JetBrains Logo (Main) logo](pic/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
