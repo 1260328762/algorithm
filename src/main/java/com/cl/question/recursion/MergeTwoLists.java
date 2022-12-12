@@ -54,9 +54,39 @@ public class MergeTwoLists {
         }
     }
 
+    /**
+     * 基于循环及创建新值的方式实现双链表合并
+     */
+    public ListNode mergeTowListLoopNewValue(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode();
+        ListNode temp = result;
+        // 循环判断大小，一直到其中一个列表循环完成
+        while (l1 != null && l2 != null) {
+            int newValue;
+            if (l1.val > l2.val) {
+                newValue = l2.val;
+                l2 = l2.next;
+            } else {
+                newValue = l1.val;
+                l1 = l1.next;
+            }
+            ListNode newNode = new ListNode(newValue);
+            temp.next = newNode;
+            temp = newNode;
+        }
+
+        if (l1 != null) {
+            temp.next = l1;
+        } else {
+            temp.next = l2;
+        }
+
+        return result.next;
+    }
+
     public static void main(String[] args) {
         MergeTwoLists mergeTwoLists = new MergeTwoLists();
-        ListNode listNode = mergeTwoLists.mergeTwoLists(ListNode.of(new int[]{1, 3, 4}), ListNode.of(new int[]{3, 4, 5}));
+        ListNode listNode = mergeTwoLists.mergeTowListLoopNewValue(ListNode.of(new int[]{1, 3, 4}), ListNode.of(new int[]{3, 4, 5}));
 
         listNode.print();
     }
