@@ -84,9 +84,28 @@ public class MergeTwoLists {
         return result.next;
     }
 
+    public ListNode mergeTwoListLoopLink(ListNode l1, ListNode l2) {
+        ListNode result = new ListNode();
+        ListNode temp = result;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                temp.next = l1;
+                l1 = l1.next;
+            } else {
+                temp.next = l2;
+                l2 = l2.next;
+            }
+            temp = temp.next;
+        }
+
+        temp.next = l1 == null ? l2 : l1;
+        return result;
+    }
+
+
     public static void main(String[] args) {
         MergeTwoLists mergeTwoLists = new MergeTwoLists();
-        ListNode listNode = mergeTwoLists.mergeTowListLoopNewValue(ListNode.of(new int[]{1, 3, 4}), ListNode.of(new int[]{3, 4, 5}));
+        ListNode listNode = mergeTwoLists.mergeTwoListLoopLink(ListNode.of(new int[]{1, 3, 4}), ListNode.of(new int[]{3, 4, 5}));
 
         listNode.print();
     }
