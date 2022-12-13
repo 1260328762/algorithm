@@ -56,6 +56,12 @@
 - [栈的压入、弹出序列](src/main/java/com/cl/question/stack/ValidateStackSequences.java) `中等`
 ### 递归和分治
 - [斐波那契数列](src/main/java/com/cl/question/recursion/Fib.java)`简单`
+- [细胞分裂](src/main/java/com/cl/question/recursion/CellDivision.java)`简单`
+- [双链表合并](src/main/java/com/cl/question/recursion/MergeTwoLists.java)`简单`
+- [逆序打印链表](src/main/java/com/cl/question/recursion/ReversePrint.java)`简单`
+- [三步问题](src/main/java/com/cl/question/recursion/WaysToStep.java)`简单`
+- [递归乘法](src/main/java/com/cl/question/recursion/Multiply.java)`中等`
+- [数值的整数次方](src/main/java/com/cl/question/recursion/MyPow.java)`中等`
 
 ## 真实面试题
 ### 杭州FB外包
