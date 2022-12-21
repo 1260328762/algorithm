@@ -28,7 +28,17 @@
 - [两数之和](src/main/java/com/cl/question/TwoSum.java) `简单`
 - [ip地址无效化](src/main/java/com/cl/question/DeIpAddr.java) `简单`
 - [反转字符串](src/main/java/com/cl/question/ReverseString.java) `简单`
+- [左旋转字符串](src/main/java/com/cl/question/ReverseLeftWords.java) `简单`
 - [反转单词顺序](src/main/java/com/cl/question/ReverseWords.java) `简单`
+- [ip地址校验](src/main/java/com/cl/question/CheckIpAddr.java) `简单`
+- [喝啤酒](src/main/java/com/cl/question/DrinkBeer.java) `简单`
+- [验证回文串](src/main/java/com/cl/question/IsPalindrome.java) `简单`
+- [验证整数回文串](src/main/java/com/cl/question/IsPalindrome9.java) `简单`
+- [最后一个单词的长度](src/main/java/com/cl/question/LengthOfLastWord.java) `简单`
+- [删除数组中的重复元素](src/main/java/com/cl/question/RemoveDuplicates.java) `简单`
+- [替换空格](src/main/java/com/cl/question/ReplaceSpace.java) `简单`
+- [反转字符串数组](src/main/java/com/cl/question/ReverseWords.java) `简单`
+- [字符串转换成整数](src/main/java/com/cl/question/StrToInt.java) `中等`
 ### 链表
 - [两数相加](src/main/java/com/cl/question/link/AddTwoNumbers.java) `简单`
 - [删除排序链表中的重复元素](src/main/java/com/cl/question/link/DeleteDuplicates.java) `简单`
