@@ -29,13 +29,11 @@ public class RemoveDuplicates {
 
         while (j < nums.length) {
             // 如果前后两个元素相等，j往后移，一直找到和i位置不相等的元素，并将其插入到i后面一位
-            if (nums[i] == nums[j]) {
-                j++;
-            } else {
+            if (nums[i] != nums[j]) {
                 i++;
                 nums[i] = nums[j];
-                j++;
             }
+            j++;
         }
 
         return i + 1;
