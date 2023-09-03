@@ -1,7 +1,5 @@
 package com.cl.question;
 
-import com.cl.algorithm.util.SortUtil;
-
 /**
  * @author chenliang
  * @since 2021/12/1 21:30
@@ -27,8 +25,6 @@ import com.cl.algorithm.util.SortUtil;
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/valid-palindrome
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- *
- * TODO 解法2只循环一次，通过双指针不断移动在原字符串上判断
  */
 public class IsPalindrome {
 
@@ -59,8 +55,44 @@ public class IsPalindrome {
         return true;
     }
 
+    /**
+     * 标准双指针解法
+     */
+    public boolean isPalindrome2(String s) {
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+        int start = 0;
+        int end = s.length() - 1;
+
+        while (start < end) {
+            if (shouldSkip(s.charAt(start))) {
+                start++;
+                continue;
+            }
+            if (shouldSkip(s.charAt(end))) {
+                end--;
+                continue;
+            }
+
+            if (Character.toLowerCase(s.charAt(start)) != Character.toLowerCase(s.charAt(end))) {
+                return false;
+            }
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+
+    public boolean shouldSkip(char aChar) {
+        return !((aChar >= '0' && aChar <= '9') || (aChar >= 'a' && aChar <= 'z')
+                || (aChar >= 'A' && aChar <= 'Z'));
+    }
+
     public static void main(String[] args) {
-        boolean palindrome = new IsPalindrome().isPalindrome("A man, a plan, a canal: Panama");
+        boolean palindrome = new IsPalindrome().isPalindrome2("A man, a plan, a canal: Panama");
         System.out.println(palindrome);
     }
 }

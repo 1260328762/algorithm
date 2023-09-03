@@ -43,6 +43,14 @@ public class ReverseLeftWords {
         return new String(chars);
     }
 
+    /**
+     * 直接采用JDK自带方法 一步到位
+     */
+    public String reverseLeftWords2(String s, int n) {
+        return s.substring(n) + s.substring(0, n);
+    }
+
+
     public static void main(String[] args) {
         String result = new ReverseLeftWords().reverseLeftWords("abcdefg", 2);
         System.out.println(result);
