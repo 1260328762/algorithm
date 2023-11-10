@@ -19,39 +19,36 @@ public class AESVideoDecrypt {
         String videoFilePath = "C:\\Users\\admin\\Desktop\\response.ts"; // 你的视频文件路径
         String keyFilePath = "C:\\Users\\admin\\Desktop\\enc_4547701.key"; // 包含AES密钥的文件路径
         String outputFilePath = "C:\\Users\\admin\\Desktop\\response-entry.ts"; // 解密后的视频文件输出路径
+    }
 
-        try {
-            // 从文件中读取密钥
-            byte[] keyBytes = Files.readAllBytes(Paths.get(keyFilePath));
-            SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
+    public void aesDecrypt(String sourcePath, String desPath, String aesKeyPath, String iv) throws Exception {
+        // 从文件中读取密钥
+        byte[] keyBytes = Files.readAllBytes(Paths.get(aesKeyPath));
+        SecretKeySpec secretKey = new SecretKeySpec(keyBytes, "AES");
 
-            // 初始化AES解密器
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(hexStringToByteArray("ff7a9df94a2613c1faeda1253eb34248"));
-            cipher.init(Cipher.DECRYPT_MODE, secretKey, ivParameterSpec);
+        // 初始化AES解密器
+        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 
-            // 打开输入和输出文件流
-            FileInputStream encryptedFileStream = new FileInputStream(videoFilePath);
-            FileOutputStream decryptedFileStream = new FileOutputStream(outputFilePath);
+        // 32位iv ff7a9df94a2613c1faeda1253eb34248
+        IvParameterSpec ivParameterSpec = new IvParameterSpec(hexStringToByteArray(iv));
+        cipher.init(Cipher.DECRYPT_MODE, secretKey, ivParameterSpec);
 
-            // 解密视频文件
-            CipherInputStream cipherInputStream = new CipherInputStream(encryptedFileStream, cipher);
-            byte[] buffer = new byte[8192];
-            int bytesRead;
-            while ((bytesRead = cipherInputStream.read(buffer)) != -1) {
-                decryptedFileStream.write(buffer, 0, bytesRead);
-            }
+        // 打开输入和输出文件流
+        FileInputStream encryptedFileStream = new FileInputStream(sourcePath);
 
-            // 关闭流
-            cipherInputStream.close();
-            encryptedFileStream.close();
-            decryptedFileStream.close();
-
-            System.out.println("视频文件解密成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("视频文件解密失败！");
+        // 解密视频文件
+        CipherInputStream cipherInputStream = new CipherInputStream(encryptedFileStream, cipher);
+        FileOutputStream decryptedFileStream = new FileOutputStream(desPath);
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = cipherInputStream.read(buffer)) != -1) {
+            decryptedFileStream.write(buffer, 0, bytesRead);
         }
+
+        // 关闭流
+        cipherInputStream.close();
+        encryptedFileStream.close();
+        decryptedFileStream.close();
     }
 
     // 将十六进制字符串转换为字节数组
