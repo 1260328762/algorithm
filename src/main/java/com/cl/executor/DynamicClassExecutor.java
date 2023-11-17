@@ -20,9 +20,9 @@ public class DynamicClassExecutor {
         }
         DynamicClass dynamicClass = (DynamicClass) newInstance;
 
-        LogUtils logUtils = new LogUtils();
-        dynamicClass.execute(logUtils);
+        ClassExecutorLogger classExecutorLogger = new ClassExecutorLogger();
+        dynamicClass.execute(classExecutorLogger);
 
-        return logUtils.getResult();
+        return classExecutorLogger.getResult();
     }
 }

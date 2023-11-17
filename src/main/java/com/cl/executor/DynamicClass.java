@@ -6,5 +6,5 @@ package com.cl.executor;
  */
 public interface DynamicClass {
 
-    void execute(LogUtils logUtils);
+    void execute(ClassExecutorLogger classExecutorLogger);
 }

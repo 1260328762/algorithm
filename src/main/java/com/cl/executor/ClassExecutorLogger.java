@@ -4,7 +4,7 @@ package com.cl.executor;
  * @author chenliang
  * @since 2023/9/22 16:43
  */
-public class LogUtils {
+public class ClassExecutorLogger {
 
     private final StringBuffer builder = new StringBuffer();
 
