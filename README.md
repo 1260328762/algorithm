@@ -79,5 +79,10 @@
 - [有效的括号(和【栈】的第九题一样)](src/main/java/com/cl/question/interview/fb/IsValid.java)
 - [找出数组中只出现一次的元素](src/main/java/com/cl/question/interview/fb/SingleNumber.java)
 
+## 工具
+- [AES视频解密](src/main/java/com/cl/AESVideoDecrypt.java)
+- [动态class执行工具](src/main/java/com/cl/executor/DynamicClassExecutor.java)
+- [操作日志记录（基于ThreadLocal）](src/main/java/com/cl/executor/DynamicClassExecutor.java)
+
 ## Thanks
 [![JetBrains Logo (Main) logo](pic/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
